@@ -1,0 +1,27 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Local temp / build artifacts
+*.log
+*.tmp
+.cache/
+
+# Original large source files (already optimised copies are in assets/img/)
+Chairman photo.png
+Logo (2).png
+Dr Wasfa pic.png
+Nosherwan dp.png
+nOSHERWAN PIC.png
+assets/img/_tmp_*
+
+# Heavy unoptimised sources kept on local only
+assets/img/chairman.png
+assets/img/chairman.jpg
+assets/img/logo.png
