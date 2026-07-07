@@ -126,7 +126,11 @@
         <h2 style="margin-bottom: 8px;">Make a Donation</h2>
         <p>Every contribution, regardless of size, brings us closer to our mission.</p>
 
-        <form data-demo>
+        <form data-web3>
+        <input type="hidden" name="access_key" value="7ddd9d41-f066-4342-93a3-b179924febe7" />
+        <input type="hidden" name="subject" value="New donation inquiry — Wasfa Gul Foundation website" />
+        <input type="hidden" name="from_name" value="WGF Donation Form" />
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none !important;" />
         <fieldset class="donation-tiers">
           <legend>Choose an amount (PKR)</legend>
           <label class="donation-tier">
@@ -159,11 +163,11 @@
           <div class="field-row">
             <div class="field">
               <label for="donation-amount">Custom amount (PKR)</label>
-              <input type="number" id="donation-amount" min="100" value="10000" />
+              <input type="number" id="donation-amount" name="amount" min="100" value="10000" />
             </div>
             <div class="field">
               <label for="donation-frequency">Frequency</label>
-              <select id="donation-frequency">
+              <select id="donation-frequency" name="frequency">
                 <option value="one-time">One-time</option>
                 <option value="monthly">Monthly</option>
                 <option value="annual">Annual</option>
@@ -173,16 +177,16 @@
           <div class="field-row">
             <div class="field">
               <label for="donation-name">Full name</label>
-              <input type="text" id="donation-name" required />
+              <input type="text" id="donation-name" name="name" required />
             </div>
             <div class="field">
               <label for="donation-email">Email</label>
-              <input type="email" id="donation-email" required />
+              <input type="email" id="donation-email" name="email" required />
             </div>
           </div>
           <div class="field">
             <label for="donation-purpose">Donation purpose</label>
-            <select id="donation-purpose">
+            <select id="donation-purpose" name="purpose">
               <option>Where most needed</option>
               <option>Hospital construction</option>
               <option>Medical equipment</option>

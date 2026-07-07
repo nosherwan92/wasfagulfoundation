@@ -134,7 +134,40 @@ document.addEventListener('DOMContentLoaded', () => {
     recompute();
   }
 
-  // Contact form (demo — prevents submission, shows confirmation)
+  // Real forms → Web3Forms (delivers submissions to the Foundation's inbox)
+  const setStatus = (form, msg, ok) => {
+    const s = form.querySelector('.form-status');
+    if (s) { s.textContent = msg; s.style.color = ok ? 'var(--color-secondary)' : '#c0392b'; }
+  };
+  document.querySelectorAll('form[data-web3]').forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      const original = btn ? btn.innerHTML : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      setStatus(form, 'Sending…', true);
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        const data = await res.json();
+        if (data.success) {
+          setStatus(form, 'Thank you! Your message has been sent — we will respond shortly.', true);
+          form.reset();
+        } else {
+          setStatus(form, 'Sorry, something went wrong. Please email us at wasfagulfoundation@gmail.com.', false);
+        }
+      } catch (err) {
+        setStatus(form, 'Network error. Please email us at wasfagulfoundation@gmail.com.', false);
+      } finally {
+        if (btn) { btn.disabled = false; btn.innerHTML = original; }
+      }
+    });
+  });
+
+  // Demo forms (e.g. newsletter) — show confirmation without sending
   document.querySelectorAll('form[data-demo]').forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();

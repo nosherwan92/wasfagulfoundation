@@ -157,16 +157,19 @@
       <div class="form-card reveal">
         <h3 style="margin-bottom: 8px;">Send a Message</h3>
         <p>Tell us how we can help. We'll route your message to the right team.</p>
-        <form data-demo>
+        <form data-web3>
+          <input type="hidden" name="access_key" value="7ddd9d41-f066-4342-93a3-b179924febe7" />
+          <input type="hidden" name="from_name" value="WGF Contact Form" />
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none !important;" />
           <div class="field-row">
-            <div class="field"><label for="c-name">Full name</label><input id="c-name" type="text" required /></div>
-            <div class="field"><label for="c-email">Email</label><input id="c-email" type="email" required /></div>
+            <div class="field"><label for="c-name">Full name</label><input id="c-name" name="name" type="text" required /></div>
+            <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" required /></div>
           </div>
           <div class="field-row">
-            <div class="field"><label for="c-phone">Phone (optional)</label><input id="c-phone" type="tel" /></div>
+            <div class="field"><label for="c-phone">Phone (optional)</label><input id="c-phone" name="phone" type="tel" /></div>
             <div class="field">
               <label for="c-topic">Topic</label>
-              <select id="c-topic">
+              <select id="c-topic" name="topic">
                 <option>General enquiry</option>
                 <option>Donation question</option>
                 <option>Volunteering</option>
@@ -178,11 +181,11 @@
           </div>
           <div class="field">
             <label for="c-subject">Subject</label>
-            <input id="c-subject" type="text" required />
+            <input id="c-subject" name="subject" type="text" required />
           </div>
           <div class="field">
             <label for="c-message">Message</label>
-            <textarea id="c-message" required></textarea>
+            <textarea id="c-message" name="message" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Send Message</button>
           <p class="form-status" style="margin-top: 14px; text-align: center; font-size: 0.9rem;"></p>
