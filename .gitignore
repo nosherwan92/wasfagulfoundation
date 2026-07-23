@@ -29,3 +29,10 @@ assets/img/logo.png
 # Local preview config
 .claude/
 WASFA.png
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
